@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
  */
 
 public class NavigationLayout extends LinearLayout {
+    NaviItemView curview;
     public NavigationLayout(@NonNull Context context) {
         super(context);
         addItemToLayout();
@@ -34,7 +35,21 @@ public class NavigationLayout extends LinearLayout {
         for(int i=0;i<4;i++){
         NaviItemView naviItemView=new NaviItemView(this.getContext());
         naviItemView.setNormal();
+            naviItemView.setPosotion(i);
         this.addView(naviItemView,lp);
+        if(i==0){
+            curview=naviItemView;
+            curview.setFocus();
+        }
+        naviItemView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                curview.setNormal();
+                curview= (NaviItemView) NavigationLayout.this.getChildAt((int)(view.getTag()));
+                curview.setFocus();
+            }
+        });
     }
     }
 
