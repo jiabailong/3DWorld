@@ -5,11 +5,9 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatImageView;
+import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.view.Gravity;
-import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.mygdx.game.R;
@@ -21,7 +19,7 @@ import com.mygdx.game.R;
 public class NaviItemView extends FrameLayout {
     int width,height;
     int pos;
-    Button btn;
+    AppCompatButton btn;
     public NaviItemView(@NonNull Context context) {
         super(context);
         init();
@@ -40,16 +38,21 @@ public class NaviItemView extends FrameLayout {
 //        width=bmp.getWidth();
 //        height=bmp.getHeight();
         setNormal();
-        FrameLayout.LayoutParams lp=new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+        FrameLayout.LayoutParams lp=new FrameLayout.LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.WRAP_CONTENT);
         lp.gravity= Gravity.CENTER;
         lp.topMargin=10;
-        btn=new Button(this.getContext());
-        btn.setBackgroundDrawable(null);
+        btn=new AppCompatButton(this.getContext());
+//        btn.setBackgroundDrawable(null);
+//        btn.setBackgroundColor(Color.BLACK);
         Drawable drawable=getResources().getDrawable(R.drawable.navicon_home);
         btn.setTextColor(Color.WHITE);
         btn.setCompoundDrawablesWithIntrinsicBounds(null,drawable,null,null);
         btn.setText("主页");
         btn.setTextSize(10);
+        btn.setGravity(Gravity.LEFT);
+        btn.setSingleLine();
+        btn.setFocusable(false);
+        btn.setClickable(false);
         this.addView(btn,lp);
 
 
@@ -77,5 +80,8 @@ public class NaviItemView extends FrameLayout {
     public void setPosotion(int poi){
         pos=poi;
         btn.setTag(poi);
+    }
+    public int getPosotion(){
+        return pos;
     }
 }
