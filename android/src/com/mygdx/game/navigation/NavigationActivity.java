@@ -56,7 +56,7 @@ public class NavigationActivity extends ActivityGroup implements NavigationLayou
     @Override
     public void onNaviItemClick(int poi) {
         Activity activity=localActivityManager.getCurrentActivity();
-        if(activity instanceof  AndroidLauncher){
+        if(activity instanceof  AndroidLauncher){//多进程
             localActivityManager.destroyActivity(AndroidLauncher.class.getName(),true);
         }
         Intent intent;
