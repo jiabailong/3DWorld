@@ -16,25 +16,32 @@ import android.widget.TextView;
 
 import com.mygdx.game.AndroidLauncher;
 import com.mygdx.game.R;
+import com.mygdx.game.homemain.HomeMainActivity;
+import com.mygdx.game.widget.NavigationLayout;
 
-public class NavigationActivity extends ActivityGroup {
+public class NavigationActivity extends ActivityGroup implements NavigationLayout.NaviItemClickListener {
 
     public FrameLayout container;// 装载sub Activity的容器
     public LocalActivityManager localActivityManager;
     View v;
+    NavigationLayout navigationLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
-        container= (FrameLayout) findViewById(R.id.frame_group);
+        container = (FrameLayout) findViewById(R.id.frame_group);
+        navigationLayout= (NavigationLayout) findViewById(R.id.left_bar);
+        navigationLayout.setNaviItemClickListener(this);
         localActivityManager = getLocalActivityManager();
-        Intent intent=new Intent(this, AndroidLauncher.class);
-        toActivity(AndroidLauncher.class.getName(),intent);
+        Intent   intent = new Intent(this, HomeMainActivity.class);
+        toActivity(HomeMainActivity.class.getName(),intent);
 
     }
+
     /**
-     * @param id 目标类id*/
+     * @param id 目标类id
+     */
     public void toActivity(String id, Intent intent) {
         // 必须先清除容器中所有的View
         container.removeAllViews();
@@ -44,5 +51,25 @@ public class NavigationActivity extends ActivityGroup {
         v = subActivity.getDecorView();
         // 容器添加View
         container.addView(v, FrameLayout.LayoutParams.FILL_PARENT, FrameLayout.LayoutParams.FILL_PARENT);
+    }
+
+    @Override
+    public void onNaviItemClick(int poi) {
+        Activity activity=localActivityManager.getCurrentActivity();
+        if(activity instanceof  AndroidLauncher){
+            localActivityManager.destroyActivity(AndroidLauncher.class.getName(),true);
+        }
+        Intent intent;
+        switch (poi) {
+            case 0:
+                 intent = new Intent(this, HomeMainActivity.class);
+                toActivity(HomeMainActivity.class.getName(),intent);
+                break;
+            case 1:
+                 intent = new Intent(this, AndroidLauncher.class);
+                toActivity(AndroidLauncher.class.getName(), intent);
+                break;
+        }
+
     }
 }

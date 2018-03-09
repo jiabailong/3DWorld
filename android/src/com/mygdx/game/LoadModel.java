@@ -26,8 +26,9 @@ public class LoadModel implements ApplicationListener {
     public boolean loading;
     public ModelInstance space;
     public ModelInstance ship;
+
     @Override
-    public void create () {
+    public void create() {
         modelBatch = new ModelBatch();
         environment = new Environment();
         environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f));
@@ -35,7 +36,7 @@ public class LoadModel implements ApplicationListener {
 
         cam = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         cam.position.set(1f, 1f, 1f);
-        cam.lookAt(0,0,0);
+        cam.lookAt(0, 0, 0);
         cam.near = 1f;
         cam.far = 300f;
         cam.update();
@@ -45,14 +46,13 @@ public class LoadModel implements ApplicationListener {
 
         assets = new AssetManager();
         assets.load("ship.obj", Model.class);
-       // assets.load("skydome.g3db", Model.class);
+        // assets.load("skydome.g3db", Model.class);
         loading = true;
     }
 
 
-
     @Override
-    public void render () {
+    public void render() {
         if (loading && assets.update())
             doneLoading();
         camController.update();
@@ -66,25 +66,30 @@ public class LoadModel implements ApplicationListener {
 //            modelBatch.render(space);
         modelBatch.end();
     }
+
     private void doneLoading() {
         ship = new ModelInstance(assets.get("ship.obj", Model.class));
         instances.add(ship);
-      //  space = new ModelInstance(assets.get("skydome.g3db", Model.class));
+        //  space = new ModelInstance(assets.get("skydome.g3db", Model.class));
         loading = false;
     }
+
     @Override
-    public void dispose () {
+    public void dispose() {
         modelBatch.dispose();
         instances.clear();
         assets.dispose();
     }
 
-    public void resume () {
+    public void resume() {
     }
 
-    public void resize (int width, int height) {
+    public void resize(int width, int height) {
     }
 
-    public void pause () {
+    public void pause() {
+        modelBatch.dispose();
+        instances.clear();
+        assets.dispose();
     }
 }

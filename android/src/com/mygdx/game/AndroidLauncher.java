@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import android.graphics.PixelFormat;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
 
@@ -23,5 +24,29 @@ public class AndroidLauncher extends AndroidApplication {
 		}
 		/*View view = initializeForView(new LoadModel(), config);
 		view.setVisibility(View.VISIBLE);*/
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		Log.d("jia","onPause");
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		Log.d("jia","onStop");
+	}
+
+	@Override
+	public void exit() {
+		super.exit();
+		Log.d("jia","exit");
+	}
+
+	@Override
+	protected void onDestroy() {
+		Log.d("jia","onDestroy");
+		super.onDestroy();
 	}
 }

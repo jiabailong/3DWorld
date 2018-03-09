@@ -3,13 +3,14 @@ package com.mygdx.game.homemain;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.mygdx.game.widget.arcmenu.ArcMenuGroup;
 import com.mygdx.game.widget.arcmenu.ArcMenuItem;
 
-public class DHMainActivity extends Activity implements ArcMenuGroup.ArcMenuItemClick {
+public class HomeMainActivity extends Activity implements ArcMenuGroup.ArcMenuItemClick {
     int aiview_width = 160, aiview_height = 160;
     int sprite_initx = 500, sprite_inity = 500;
     FrameLayout frameLayout;
@@ -18,17 +19,13 @@ public class DHMainActivity extends Activity implements ArcMenuGroup.ArcMenuItem
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //	iHomeActivity.setBarGone();
-//		setContentView(R.layout.lib_dhactivity);
 
-//		ArcMenuGroup.r=(hitview.getWidth()+100)/2;
-//		ArcMenuGroup arcMenuGroup = new ArcMenuGroup(this);
-//		//arcMenuGroup.setBackgroundColor(Color.parseColor("#50000000"));
-//
+		ArcMenuGroup.r=200;
+		ArcMenuGroup arcMenuGroup = new ArcMenuGroup(this);
+        arcMenuGroup.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        setContentView(arcMenuGroup);
 //		arcMenuGroup.addArcClickListener(this);
-//
-//
-//		getArcItemData(arcMenuGroup);
+		getArcItemData(arcMenuGroup);
 
     }
 
@@ -38,13 +35,13 @@ public class DHMainActivity extends Activity implements ArcMenuGroup.ArcMenuItem
     public void getArcItemData(ArcMenuGroup arcMenuGroup) {
         int w = 100, h = 100;
         FrameLayout.LayoutParams lps = new FrameLayout.LayoutParams(w, h);
-        ArcMenuItem arcMenuItem = createArcItem();
-        arcMenuItem.w = w;
-        arcMenuItem.h = h;
-
-//			arcMenuItem.obj = branchEntity;
-//			arcMenuItem.setText(branchEntity.name);
-        arcMenuGroup.addArcItem(arcMenuItem, lps);
+        for(int i=0;i<9;i++) {
+            ArcMenuItem arcMenuItem = createArcItem();
+            arcMenuItem.w = w;
+            arcMenuItem.h = h;
+            arcMenuItem.setText("雷达"+i);
+            arcMenuGroup.addArcItem(arcMenuItem, lps);
+        }
     }
 
     public ArcMenuItem createArcItem() {

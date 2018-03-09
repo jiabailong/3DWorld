@@ -101,6 +101,12 @@ public class NavigationLayout extends LinearLayout {
                     curview.setNormal();
                     curview = (NaviItemView) NavigationLayout.this.getChildAt((((NaviItemView) view).getPosotion()));
                     curview.setFocus();
+                    if(arg1.getAction()==MotionEvent.ACTION_UP){
+                        if(naviItemClickListener!=null){
+                            naviItemClickListener.onNaviItemClick(((NaviItemView) view).getPosotion());
+                        }
+                    }
+
                     return true;
                 }
             }
@@ -108,5 +114,12 @@ public class NavigationLayout extends LinearLayout {
 
             return false;
         }
+    }
+    public void setNaviItemClickListener(NaviItemClickListener naviItemClickListener){
+        this.naviItemClickListener=naviItemClickListener;
+    }
+    public NaviItemClickListener naviItemClickListener;
+    public interface NaviItemClickListener{
+        public void onNaviItemClick(int poi);
     }
 }
