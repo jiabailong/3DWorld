@@ -16,6 +16,7 @@
         android:src="@drawable/top2" />
 
     <com.mygdx.game.widget.NavigationLayout
+        android:id="@+id/left_bar"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp">
@@ -29,6 +30,7 @@
         android:layout_marginLeft="60dp">
 
         <android.support.v7.widget.AppCompatImageView
+            android:layout_marginTop="40dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
