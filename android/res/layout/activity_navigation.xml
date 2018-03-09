@@ -1,34 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/container"
-    android:background="@drawable/bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   >
-<com.mygdx.game.widget.NavigationLayout
-    android:layout_width="60dp"
-    android:layout_height="wrap_content">
+    android:background="@drawable/bg">
 
-
-
-</com.mygdx.game.widget.NavigationLayout>
-    <FrameLayout
-        android:layout_marginLeft="60dp"
+    <android.support.v7.widget.AppCompatImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ImageView
-            android:scaleType="centerInside"
-            android:layout_gravity="center"
-            android:src="@drawable/bg_3d"
+        android:layout_height="wrap_content"
+        android:src="@drawable/top1" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/top2" />
+
+    <com.mygdx.game.widget.NavigationLayout
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp">
+
+
+    </com.mygdx.game.widget.NavigationLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="60dp">
+
+        <android.support.v7.widget.AppCompatImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:src="@drawable/bg_3d" />
+
         <FrameLayout
             android:id="@+id/frame_group"
 
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"></FrameLayout>
     </FrameLayout>
-
 
 
 </FrameLayout>
