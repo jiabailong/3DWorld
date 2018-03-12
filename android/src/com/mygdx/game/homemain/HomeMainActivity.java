@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
+import com.mygdx.game.R;
 import com.mygdx.game.widget.arcmenu.ArcMenuGroup;
 import com.mygdx.game.widget.arcmenu.ArcMenuItem;
 
@@ -15,20 +17,29 @@ public class HomeMainActivity extends Activity implements ArcMenuGroup.ArcMenuIt
     int sprite_initx = 500, sprite_inity = 500;
     FrameLayout frameLayout;
     Button dh_qh;
-
+    ArcMenuGroup arcMenuGroup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.homemain);
 		ArcMenuGroup.r=200;
-		ArcMenuGroup arcMenuGroup = new ArcMenuGroup(this);
-        arcMenuGroup.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        setContentView(arcMenuGroup);
+		 arcMenuGroup = (ArcMenuGroup) findViewById(R.id.arc_group);
 //		arcMenuGroup.addArcClickListener(this);
-		getArcItemData(arcMenuGroup);
 
+        arcMenuGroup.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                getArcItemData(arcMenuGroup);
+                arcMenuGroup.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+            }
+        });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
 
     int firstx, firsty;
 
@@ -40,7 +51,7 @@ public class HomeMainActivity extends Activity implements ArcMenuGroup.ArcMenuIt
             arcMenuItem.w = w;
             arcMenuItem.h = h;
             arcMenuItem.setText("雷达"+i);
-            arcMenuGroup.addArcItem(arcMenuItem, lps);
+            arcMenuGroup.addArcItem(arcMenuItem, lps,9);
         }
     }
 
