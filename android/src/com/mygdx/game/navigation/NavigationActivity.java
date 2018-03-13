@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -25,6 +26,7 @@ public class NavigationActivity extends ActivityGroup implements NavigationLayou
     public LocalActivityManager localActivityManager;
     View v;
     NavigationLayout navigationLayout;
+    public String cur_activity_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,12 @@ public class NavigationActivity extends ActivityGroup implements NavigationLayou
      * @param id 目标类id
      */
     public void toActivity(String id, Intent intent) {
+        if(!TextUtils.isEmpty(cur_activity_name)) {
+            if (cur_activity_name.equals(id)) {
+                return;
+            }
+        }
+        cur_activity_name=id;
         // 必须先清除容器中所有的View
         container.removeAllViews();
         // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -56,6 +64,7 @@ public class NavigationActivity extends ActivityGroup implements NavigationLayou
     @Override
     public void onNaviItemClick(int poi) {
         Activity activity=localActivityManager.getCurrentActivity();
+
         if(activity instanceof  AndroidLauncher){//多进程
             localActivityManager.destroyActivity(AndroidLauncher.class.getName(),true);
         }
