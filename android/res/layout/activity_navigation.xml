@@ -14,16 +14,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/top2" />
-
-    <com.mygdx.game.widget.NavigationLayout
-        android:id="@+id/left_bar"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp">
-
-
-    </com.mygdx.game.widget.NavigationLayout>
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -42,6 +32,16 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"></FrameLayout>
     </FrameLayout>
+
+    <com.mygdx.game.widget.NavigationLayout
+        android:id="@+id/left_bar"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp">
+
+
+    </com.mygdx.game.widget.NavigationLayout>
+
 
 
 </FrameLayout>

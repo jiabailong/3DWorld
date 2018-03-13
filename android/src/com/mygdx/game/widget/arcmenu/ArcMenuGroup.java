@@ -62,7 +62,7 @@ public class ArcMenuGroup extends FrameLayout implements View.OnClickListener {
         x0 = this.getMeasuredWidth() / 2;
         y0 = this.getMeasuredHeight() / 2;
         int a = x0 - 50;
-        int b = y0 - 180;
+        int b = y0 - 200;
         list.add(arc);
         arc.setOnClickListener(this);
 
@@ -74,11 +74,11 @@ public class ArcMenuGroup extends FrameLayout implements View.OnClickListener {
 
 
         if (list.size() % 2 == 0) {
-            arc.x = loc[0] + x0 - 40;
-            arc.y = loc[1] + y0;
+            arc.x = loc[0] + x0 - 80;
+            arc.y = loc[1] + y0-60;
         }else{
-            arc.x = loc[0] + x0 - 40;
-            arc.y = -loc[1] + y0;
+            arc.x = loc[0] + x0 - 90;
+            arc.y = -loc[1] + y0-60;
         }
         addView(arc, lp);
         this.invalidate();

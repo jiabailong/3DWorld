@@ -1,11 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:circle="http://schemas.android.com/apk/res-auto">
     <com.mygdx.game.widget.arcmenu.ArcMenuGroup
+        android:visibility="gone"
         android:id="@+id/arc_group"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     </com.mygdx.game.widget.arcmenu.ArcMenuGroup>
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_gravity="center"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/earth2" />
+    <com.mygdx.game.widget.circlemenu.view.CircleLayout
+        android:id="@+id/main_circle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal|center_vertical"
+        circle:firstChildPosition="South"
+        circle:isRotating="true"
+        circle:rotateToCenter="true" >
 
+        <com.mygdx.game.widget.circlemenu.view.CircleImageView
+            android:scaleType="center"
+            android:id="@+id/main_facebook_image"
+            circle:name="备份设置"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/air" />
+
+        <com.mygdx.game.widget.circlemenu.view.CircleImageView
+            
+            android:scaleType="center"
+            android:id="@+id/main_myspace_image"
+            circle:name="手动备份"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/air" />
+
+        <com.mygdx.game.widget.circlemenu.view.CircleImageView
+            android:scaleType="center"
+            android:id="@+id/main_google_image"
+            circle:name="备份日志"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/air" />
+
+        <com.mygdx.game.widget.circlemenu.view.CircleImageView
+            android:scaleType="center"
+            android:id="@+id/main_linkedin_image"
+            circle:name="恢复数据"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/air" />
+        <com.mygdx.game.widget.circlemenu.view.CircleImageView
+            android:scaleType="center"
+            android:id="@+id/main_linkedin_image2"
+            circle:name="恢复数据"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/air" />
+        <com.mygdx.game.widget.circlemenu.view.CircleImageView
+            android:scaleType="center"
+            android:id="@+id/main_linkedin_image3"
+            circle:name="恢复数据"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/air" />
+    </com.mygdx.game.widget.circlemenu.view.CircleLayout>
 </FrameLayout>

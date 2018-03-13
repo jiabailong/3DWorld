@@ -44,7 +44,7 @@ public class HomeMainActivity extends Activity implements ArcMenuGroup.ArcMenuIt
     int firstx, firsty;
 
     public void getArcItemData(ArcMenuGroup arcMenuGroup) {
-        int w = 100, h = 100;
+        int w = 180, h = 170;
         FrameLayout.LayoutParams lps = new FrameLayout.LayoutParams(w, h);
         for(int i=0;i<9;i++) {
             ArcMenuItem arcMenuItem = createArcItem();

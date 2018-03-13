@@ -1,1 +1,1 @@
-include 'android', 'core'
+include 'android', 'core', ':android-gif-drawable'
