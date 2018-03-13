@@ -5,6 +5,7 @@ import android.app.ActivityGroup;
 import android.app.LocalActivityManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,7 @@ public class NavigationActivity extends ActivityGroup implements NavigationLayou
     View v;
     NavigationLayout navigationLayout;
     public String cur_activity_name;
+    boolean onStop=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,17 @@ public class NavigationActivity extends ActivityGroup implements NavigationLayou
         toActivity(HomeMainActivity.class.getName(),intent);
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(cur_activity_name.equals(AndroidLauncher.class.getName())){
+            Intent    intent = new Intent(this, AndroidLauncher.class);
+            toActivityForce(AndroidLauncher.class.getName(), intent);
+        }
+    }
+
+
 
     /**
      * @param id 目标类id
@@ -60,14 +73,22 @@ public class NavigationActivity extends ActivityGroup implements NavigationLayou
         // 容器添加View
         container.addView(v, FrameLayout.LayoutParams.FILL_PARENT, FrameLayout.LayoutParams.FILL_PARENT);
     }
+    public void toActivityForce(String id, Intent intent) {
+
+        cur_activity_name=id;
+        // 必须先清除容器中所有的View
+        container.removeAllViews();
+        // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        Window subActivity = getLocalActivityManager()
+                .startActivity(id, intent);
+        v = subActivity.getDecorView();
+        // 容器添加View
+        container.addView(v, FrameLayout.LayoutParams.FILL_PARENT, FrameLayout.LayoutParams.FILL_PARENT);
+    }
 
     @Override
     public void onNaviItemClick(int poi) {
-        Activity activity=localActivityManager.getCurrentActivity();
-
-        if(activity instanceof  AndroidLauncher){//多进程
-            localActivityManager.destroyActivity(AndroidLauncher.class.getName(),true);
-        }
+        destory3DView();
         Intent intent;
         switch (poi) {
             case 0:
@@ -80,5 +101,19 @@ public class NavigationActivity extends ActivityGroup implements NavigationLayou
                 break;
         }
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        destory3DView();
+    }
+
+    public void destory3DView(){
+        Activity activity=localActivityManager.getCurrentActivity();
+
+        if(activity instanceof  AndroidLauncher){//多进程
+            localActivityManager.destroyActivity(AndroidLauncher.class.getName(),true);
+        }
     }
 }
