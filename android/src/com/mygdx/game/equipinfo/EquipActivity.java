@@ -3,6 +3,8 @@ package com.mygdx.game.equipinfo;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ExpandableListView;
 
 import com.mygdx.game.R;
@@ -17,6 +19,7 @@ import java.util.ArrayList;
 
 public class EquipActivity extends Activity {
     ExpandableListView expandableListView;
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,5 +38,15 @@ public class EquipActivity extends Activity {
         }
         EquipLeftAdapter equipLeftAdapter=new EquipLeftAdapter(this,list);
         expandableListView.setAdapter(equipLeftAdapter);
+
+
+        recyclerView=findViewById(R.id.right);
+        GridLayoutManager layoutManage = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(layoutManage);
+        ArrayList<Object> names=new ArrayList();
+       for(int i=0;i<10;i++){
+           names.add(new Object());
+       }
+        recyclerView.setAdapter(new EquipRightAdapter(this,names));
     }
 }
