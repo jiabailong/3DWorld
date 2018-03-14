@@ -57,7 +57,7 @@ public class AndroidLauncher extends AndroidApplication {
 			public void run() {
 				progressDialog.close();
 			}
-		},1000);
+		},500);
 	}
 
 

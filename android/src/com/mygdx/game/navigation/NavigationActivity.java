@@ -9,6 +9,7 @@ import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatImageView;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,6 +30,7 @@ public class NavigationActivity extends ActivityGroup implements NavigationLayou
     NavigationLayout navigationLayout;
     public String cur_activity_name;
     boolean onStop=false;
+    AppCompatImageView cir_bg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class NavigationActivity extends ActivityGroup implements NavigationLayou
         setContentView(R.layout.activity_navigation);
         container = (FrameLayout) findViewById(R.id.frame_group);
         navigationLayout= (NavigationLayout) findViewById(R.id.left_bar);
+        cir_bg=(AppCompatImageView)findViewById(R.id.cir_bg);
         navigationLayout.setNaviItemClickListener(this);
         localActivityManager = getLocalActivityManager();
         Intent   intent = new Intent(this, HomeMainActivity.class);
@@ -92,12 +95,22 @@ public class NavigationActivity extends ActivityGroup implements NavigationLayou
         Intent intent;
         switch (poi) {
             case 0:
+                cir_bg.setVisibility(View.INVISIBLE);
                  intent = new Intent(this, HomeMainActivity.class);
                 toActivity(HomeMainActivity.class.getName(),intent);
                 break;
             case 1:
+                cir_bg.setVisibility(View.VISIBLE);
                  intent = new Intent(this, AndroidLauncher.class);
                 toActivity(AndroidLauncher.class.getName(), intent);
+                break;
+            case 2:
+//                intent = new Intent(this, AndroidLauncher.class);
+//                toActivity(AndroidLauncher.class.getName(), intent);
+                break;
+            case 3:
+//                intent = new Intent(this, AndroidLauncher.class);
+//                toActivity(AndroidLauncher.class.getName(), intent);
                 break;
         }
 
