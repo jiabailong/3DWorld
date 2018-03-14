@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ExpandableListView
+            android:groupIndicator="@null"
+            android:id="@+id/left"
+            android:background="@drawable/text_rect"
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ExpandableListView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/right"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

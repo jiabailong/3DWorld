@@ -20,6 +20,8 @@
         android:layout_marginLeft="60dp">
 
         <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/cir_bg"
+            android:visibility="gone"
             android:layout_marginTop="40dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -27,6 +29,7 @@
             android:src="@drawable/bg_3d" />
 
         <FrameLayout
+            android:layout_marginLeft="10dp"
             android:id="@+id/frame_group"
 
             android:layout_width="fill_parent"
