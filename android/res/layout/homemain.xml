@@ -40,7 +40,7 @@
                     circle:name="备份设置"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/navicon_air" />
+                    android:src="@drawable/item_icon1" />
 
                 <com.mygdx.game.widget.circlemenu.view.CircleImageView
 
@@ -49,7 +49,7 @@
                     circle:name="手动备份"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/navicon_air" />
+                    android:src="@drawable/item_icon2" />
 
                 <com.mygdx.game.widget.circlemenu.view.CircleImageView
                     android:scaleType="center"
@@ -57,28 +57,28 @@
                     circle:name="备份日志"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/navicon_air" />
+                    android:src="@drawable/item_icon3" />
                 <com.mygdx.game.widget.circlemenu.view.CircleImageView
                     android:scaleType="center"
                     android:id="@+id/main_google_image1"
                     circle:name="备份日志"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/navicon_home" />
+                    android:src="@drawable/item_icon4" />
                 <com.mygdx.game.widget.circlemenu.view.CircleImageView
                     android:scaleType="center"
                     android:id="@+id/main_google_image2"
                     circle:name="备份日志"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/navicon_home" />
+                    android:src="@drawable/item_icon5" />
                 <com.mygdx.game.widget.circlemenu.view.CircleImageView
                     android:scaleType="center"
                     android:id="@+id/main_google_image3"
                     circle:name="备份日志"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/navicon_air" />
+                    android:src="@drawable/item_icon6" />
 
                 <com.mygdx.game.widget.circlemenu.view.CircleImageView
                     android:scaleType="center"
@@ -86,21 +86,21 @@
                     circle:name="恢复数据"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/navicon_help" />
+                    android:src="@drawable/item_icon7" />
                 <com.mygdx.game.widget.circlemenu.view.CircleImageView
                     android:scaleType="center"
                     android:id="@+id/main_linkedin_image2"
                     circle:name="恢复数据"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/navicon_help" />
+                    android:src="@drawable/item_icon8" />
                 <com.mygdx.game.widget.circlemenu.view.CircleImageView
                     android:scaleType="center"
                     android:id="@+id/main_linkedin_image3"
                     circle:name="恢复数据"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/navicon_air" />
+                    android:src="@drawable/item_icon9" />
             </com.mygdx.game.widget.circlemenu.view.CircleLayout>
         </FrameLayout>
         <TextView

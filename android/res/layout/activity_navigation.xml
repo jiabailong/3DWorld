@@ -4,16 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg">
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:text="装备信息"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <android.support.v7.widget.AppCompatImageView
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:src="@drawable/top1" />
 
     <android.support.v7.widget.AppCompatImageView
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/top2" />
+        android:background="@drawable/top2" />
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,6 +36,7 @@
             android:src="@drawable/bg_3d" />
 
         <FrameLayout
+            android:layout_marginTop="30dp"
             android:layout_marginLeft="10dp"
             android:id="@+id/frame_group"
 

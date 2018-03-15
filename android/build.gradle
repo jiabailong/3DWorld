@@ -19,7 +19,7 @@ android {
     }
     defaultConfig {
         applicationId "com.mygdx.game"
-        minSdkVersion 9
+        minSdkVersion 14
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -138,4 +138,5 @@ dependencies {
     compile 'com.android.support:design:25.4.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:support-vector-drawable:25.4.0'
+    implementation 'com.android.support:cardview-v7:28.0.0-alpha1'
 }
