@@ -53,14 +53,14 @@ public class EquipRightAdapter extends RecyclerView.Adapter<EquipRightAdapter.MV
 //        cardView.setCardBackgroundColor(Color.parseColor(colors[poi%colors.length]));
 //
 ////        holder.name.setText("创建时间："+pic.date);
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (recycleItemClick != null) {
-//                    recycleItemClick.onRecycleItemClick(holder.itemView, poi, pic);
-//                }
-//            }
-//        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (recycleItemClick != null) {
+                    recycleItemClick.onRecycleItemClick(holder.itemView, poi, null);
+                }
+            }
+        });
 //        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
 //            @Override
 //            public boolean onLongClick(View v) {

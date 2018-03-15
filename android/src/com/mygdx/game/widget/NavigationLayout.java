@@ -22,7 +22,7 @@ import com.mygdx.game.R;
 public class NavigationLayout extends LinearLayout {
     String[] names = {"主页", "军用模型", "模型数据", "使用帮助"};
     int []icons={R.drawable.navicon_home,R.drawable.navicon_air,R.drawable.navicon_home,R.drawable.navicon_help};
-    NaviItemView curview;
+    public NaviItemView curview;
 
     public NavigationLayout(@NonNull Context context) {
         super(context);
@@ -93,8 +93,14 @@ public class NavigationLayout extends LinearLayout {
             double scale_width = (double) b.getWidth() / (double) img_width;
 
             if (y < b.getHeight() && x > 0 && y > 0 && x < b.getWidth()) {
-                int color = b.getPixel((int) (x * scale_width),
-                        (int) (y * scale_height));
+                int color;
+                if((int) (x * scale_width)<b.getWidth()&& (int) (y * scale_height)<b.getHeight()){
+                     color = b.getPixel((int) (x * scale_width),
+                            (int) (y * scale_height));
+                }else{
+                    return false;
+                }
+
                 if (Color.alpha(color) == 0) {
                     return false;
                 } else {
