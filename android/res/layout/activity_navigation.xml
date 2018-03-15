@@ -43,7 +43,17 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"></FrameLayout>
     </FrameLayout>
-
+    <TextView
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="40dp"
+        android:visibility="gone"
+        android:id="@+id/model_info"
+        android:layout_marginLeft="70dp"
+        android:gravity="center"
+        android:background="@drawable/text_rect"
+        android:text="性能参数"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <com.mygdx.game.widget.NavigationLayout
         android:id="@+id/left_bar"
         android:layout_width="60dp"

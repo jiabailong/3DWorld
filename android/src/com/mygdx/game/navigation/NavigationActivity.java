@@ -32,6 +32,7 @@ public class NavigationActivity extends ActivityGroup implements NavigationLayou
     public String cur_activity_name;
     boolean onStop = false;
     AppCompatImageView cir_bg;
+    TextView model_info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class NavigationActivity extends ActivityGroup implements NavigationLayou
         container = (FrameLayout) findViewById(R.id.frame_group);
         navigationLayout = (NavigationLayout) findViewById(R.id.left_bar);
         cir_bg = (AppCompatImageView) findViewById(R.id.cir_bg);
+        model_info=(TextView)findViewById(R.id.model_info);
         navigationLayout.setNaviItemClickListener(this);
         localActivityManager = getLocalActivityManager();
         Intent intent = new Intent(this, HomeMainActivity.class);
@@ -61,6 +63,11 @@ public class NavigationActivity extends ActivityGroup implements NavigationLayou
      * @param id 目标类id
      */
     public void toActivity(String id, Intent intent) {
+        if(id.equals(AndroidLauncher.class.getName())){
+            model_info.setVisibility(View.VISIBLE);
+        }else{
+            model_info.setVisibility(View.GONE);
+        }
         if (!TextUtils.isEmpty(cur_activity_name)) {
             if (cur_activity_name.equals(id)) {
                 return;
