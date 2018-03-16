@@ -23,8 +23,21 @@ public class AndroidLauncher extends AndroidApplication {
 		progressDialog=new LoadingProgress(this);
 		progressDialog.show();
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
+		LoadModel loadModel=new LoadModel();
+		loadModel.setDoneLoad(new LoadModel.DoneLoad() {
+			@Override
+			public void doneLoad() {
+				runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						progressDialog.close();
+					}
+				});
+
+			}
+		});
 		config.r = config.g = config.b = config.a = 8;
-		initialize(new LoadModel(), config);
+		initialize(loadModel, config);
 
 		if (graphics.getView() instanceof SurfaceView) {
 			SurfaceView glView = (SurfaceView) graphics.getView();
@@ -52,12 +65,6 @@ public class AndroidLauncher extends AndroidApplication {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		new Handler().postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				progressDialog.close();
-			}
-		},500);
 	}
 
 
